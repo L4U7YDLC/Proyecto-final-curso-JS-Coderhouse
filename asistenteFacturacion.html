@@ -1,16 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FacAssis</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>ASISTENTE DE FACTURACIÓN</h1>
-    <script src="articulos.js"></script>
-    <script src="funciones.js"></script>
-    <script src="stockDisponible.js"></script>
-</body>
-</html>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FacAssis</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>   
+        <script src="articulos.js"></script>
+        <script src="cuentasCorrientes.js"></script>
+        <script src="login.js"></script> 
+        <script src="proveedores.js"></script>
+        <script src="ordenesCompra.js"></script>
+        <script src="Facturas.js"></script>
+        <script src="funciones.js"></script>
+        <script src="stockDisponible.js"></script>
+
+    </head>
+    <body>
+        <h1>FacAssis</h1>
+
+        <div class="Oculto" id="Encabezado">
+            <div class='datosEncabezado' id='NroFactura'>Factura n°: x-1-0000000001</div>
+            <div class="datosEncabezado" id="FechaVenta">Fecha de Venta: </div>
+        </div>
+
+        <div class="Oculto" id="Encabezado2">
+            Cliente: <input class="datosEncabezado" id="Cliente" type="text" value=""></input>
+            Dirección: <input class="datosEncabezado" id="Direccion" type="text" value=""></input>
+            Vendedor: <div class="datosEncabezado" id="nombreVendedor"></div>
+             <div class="datosEncabezado" id="CtaCte"> Cta Cte N°:<button id="botonCuentaCte">Buscar</button></div>
+            Teléfono: <input class="datosEncabezado" id="Telefono" type="number" value="" min="1000000000" max="9999999999"></input>
+            Descuento: <input class="datosEncabezado" id="Descuento" type="number" value="" min="0" max="40"></input>
+            Medio de pago: <select class="datosEncabezado" id="MedioPago">
+                            <option value="Efectivo">Efectivo</option>
+                            <option value="Débito">Débito</option>
+                            <option value="Crédito">Crédito</option>
+                            <option value="CuentaCte">Cuenta Corriente</option>
+                        </select>
+            Fecha de entrega: <input class="datosEncabezado" id="FechaEntrega" type="date" value="" min=""></input>
+            Cantidad de ítems: <div class='datosEncabezado' id='cantItems'>0</div>
+        </div>
+
+        <div id="NuevaFactura">
+            <button>Nueva Factura</button>
+        </div>
+
+        <div class="Oculto" id="login">
+            <form>
+                <div><label for='Vendedor'>Vendedor</label><input type='text' id='Vendedor'></input></div>
+                <div><label for='Contraseña'>Contraseña</label><input type='password' id='Contraseña'></input></div>
+                <button type='submit' id="Confirmar">Confirmar</button>
+            </form>
+        </div>
+
+        <div class="Oculto" id="Interfaz">
+            <button id="NuevoItem">Nuevo Ítem</button>
+            <table id="ItemsFacturados">
+                <tr id="EncabezadoTabla">
+                    <td>Código</td><td>Descripción</td><td>Cantidad</td><td>Precio Unitario</td><td>Precio Total</td><td>Fecha Entr.</td>
+                </tr>
+            </table>
+            <div>Total:<span id="PrecioTotal">$0</span></div>
+            <button id="Cancelar">Cancelar Factura</button>
+            <button id="Finalizar">Finalizar</button>
+        </div>
+        
+        <script src="flujo.js"></script>
+    </body>
+    </html>
